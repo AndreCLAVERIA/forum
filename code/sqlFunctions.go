@@ -98,8 +98,7 @@ func ShowPosts(data_post map[string]interface{}, id_post string) {
 
 	for rows.Next() {
 		rows.Scan(&p.Id, &p.Title, &p.Content, &p.Author, &p.Filters, &p.Likes)
-		p.Content = strings.ReplaceAll(p.Content, "\r", "<br>")
-		p.Content = strings.ReplaceAll(p.Content, "\n", "<br>")
+
 		arrPost = append([]Post{p}, arrPost...)
 
 	}
@@ -162,8 +161,6 @@ func DeleteHandler(response http.ResponseWriter, request *http.Request) {
 	tx.Commit()
 	http.Redirect(response, request, "/welcome", http.StatusSeeOther)
 }
-
-/*Encrypt*/
 
 func AddLikes(likes string) {
 	// Open the database
@@ -238,3 +235,27 @@ func SearchAllUserInPostDb(likes string, data_post map[string]interface{}) bool 
 	data_post["alreadyLiked"] = false
 	return false
 }
+
+// func insertIntoTypesUserInfos(db *sql.DB, bio string, linkGit string, linkLinkedin string, username interface{}) {
+// 	// Open the database
+// 	database, err := sql.Open("sqlite3", "./dblogin.db")
+// 	CheckError(err)
+// 	defer database.Close()
+
+// 	fmt.Println(bio)
+// 	fmt.Println(linkGit)
+// 	fmt.Println(linkLinkedin)
+// 	fmt.Println(username)
+
+// 	// démarre une transaction
+// 	tx, err := database.Begin()
+// 	CheckError(err)
+// 	// Prépare la transaction
+// 	stmt, err := tx.Prepare("UPDATE dblogin SET bio = ?, linkGit = ?, linkLinkedin = ? WHERE email = ?")
+// 	CheckError(err)
+// 	// Execute la transaction
+// 	_, err = stmt.Exec(bio, linkGit, linkLinkedin, username)
+// 	CheckError(err)
+// 	// Commit la transaction
+// 	tx.Commit()
+// }

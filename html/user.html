@@ -23,7 +23,7 @@
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
     </script>
 
-    <link href="../assets/index.css" rel="stylesheet">
+    
     <link href="../assets/user.css" rel="stylesheet">
 
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -33,13 +33,13 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
+            <a class="navbar-brand" href="/welcome">
                 <img src="./img/4head.png" alt="" width="25" height="30" class="d-inline-block align-text-top">
                 4Head
             </a>
             <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                {{ .userConnected }}
+                {{ .Pseudo }}
             </button>
             <div class="dropdown-menu">
                 <h6 class="dropdown-header">Activity</h6>
@@ -64,39 +64,37 @@
         <!-- Begin .page-heading -->
         <div class="page-heading mt-auto">
             <div class="media clearfix">
-             
+                <div class="media-left pr30">
+                    <a href="#">
+                    </a>
+                </div>
                 <div class="media-body va-m">
-                    <h2 class="media-heading">Cadberry
+                    <h2 class="media-heading">{{ .userConnected }}
                         <small> - Profile</small>
-                        <div class="submitButton">
-                        <form>
-                             <button  type="button" class="btn btn-outline-light btn-rounded">
-                                <a href="/post">
-                                   Edit
+                      
+                            <button type="button" name="editinfos" class="btn btn-outline_light btn-primary_dark btn-rounded">
+                                bouton
+                                <a href="/userinfos">
                                 </a>
                             </button>
-                        </form>
-                        </div>
+                     
                     </h2>
-                   
-                        
-                   
-                    <p class="lead">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
+                    <p class="lead">{{.Bio}}</p>
                     <div class="media-links">
                         <ul class="list-inline list-unstyled">
                             <li>
-                                <a href="#" title="linkedin link">
+                                <a href="https://www.linkedin.com/in/{{.LinkLinkedin}}" title="linkedin link">
                                     <span class="fa fa-linkedin-square fs35 text-info"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="github link">
+                                <a href="https://github.com/{{.LinkGit}}" title="github link">
                                     <span class="fa fa-github-square fs35 text-dark"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" title="email link">
-                                    <span class="fa fa-envelope-square fs35 text-muted"></span>
+                                <a href="mailto:{{.Email}}" title="email link">
+                                    <span class="fs25 text-muted"> {{.Email}} </span>
                                 </a>
                             </li>
                         </ul>
@@ -107,101 +105,6 @@
 
         <div class="row">
             <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span class="panel-icon">
-                            <i class="fa fa-star"></i>
-                        </span>
-                        <span class="panel-title"> User Popularity</span>
-                    </div>
-                    <div class="panel-body pn">
-                        <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-desktop text-warning"></span>
-                                    </td>
-                                    <td>Most viewed post</td>
-                                    <td>
-                                        <i class="fa text-info pr10"></i>475
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-microphone text-primary"></span>
-                                    </td>
-                                    <td>Most liked post</td>
-                                    <td>
-                                        <i class="fa text-danger pr10"></i>26
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-newspaper-o text-info"></span>
-                                    </td>
-                                    <td>Total post</td>
-                                    <td>
-                                        <i class="fa text-info pr10"></i>6
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span class="panel-icon">
-                            <i class="fa fa-trophy"></i>
-                        </span>
-                        <span class="panel-title"> My Skills</span>
-                    </div>
-                    <div class="panel-body pb5">
-                        <span class="label label-warning mr5 mb10 ib lh15">JS</span>
-                        <span class="label label-primary mr5 mb10 ib lh15">HTML</span>
-                        <span class="label label-info mr5 mb10 ib lh15">GO</span>
-                        <span class="label label-success mr5 mb10 ib lh15">Python</span>
-                        <span class="label label-info mr5 mb10 ib lh15">C++</span>
-                        <span class="label label-success mr5 mb10 ib lh15">Windows</span>
-                        <span class="label label-primary mr5 mb10 ib lh15">Linux</span>
-
-                    </div>
-                </div>
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span class="panel-icon">
-                            <i class="fa fa-pencil"></i>
-                        </span>
-                        <span class="panel-title">About Me</span>
-                    </div>
-                    <div class="panel-body pb5">
-
-                        <h6>Experience</h6>
-
-                        <h4>Google Intership</h4>
-                        <p class="text-muted"> Google Paris, France
-                            <br> IOT Intern, June 2021 - Present
-                        </p>
-
-                        <hr class="short br-lighter">
-
-                        <h6>Education</h6>
-
-                        <h4>Bachelor of Computer Engineering</h4>
-                        <p class="text-muted"> YNOV Paris, France
-                            <br> Bachelor Student, September 2020 through June 2021
-                        </p>
-
-                        <hr class="short br-lighter">
-
-                        <h6>Accomplishments</h6>
-
-                        <h4>Successful Business</h4>
-                        <p class="text-muted pb10"> Worldwide clientele
-                            <br> Online coaching, January 2018 through Sept 2020
-                        </p>
-
-                    </div>
-                </div>
             </div>
             <div class="col-md-8">
 
@@ -214,13 +117,25 @@
                     <div class="tab-content p30" style="height: 730px;">
                         <div id="tab1" class="tab-pane active">
                             <div class="media">
-                                <a class="pull-left" href="#"> <img class="media-object mn thumbnail mw50" src=""
-                                        alt="..."> </a>
                                 <div class="media-body">
-                                    <h5 class="media-heading mb20">Jon Doe
+                                    <h5 class="media-heading mb20">{{ .userConnected }}
                                         <small> - X hours ago</small>
                                     </h5>
                                     <p>Lorem ipsum</p>
+                                    <!-- {{ range .showPost }}
+                                    <tr>
+                                        <td>
+                                        <form method="GET" action="/showPost">
+                                        <input type="hidden" name="id-post" value="{{ .Id }}" >
+                        
+                                            <h3 class="h5 mb-0"><button>{{ .Title }}</button></h3>
+                                        </form>
+                                        <p class="mb-0">{{ .Content }}</p>
+                                        </td>
+                                        
+                                        </td>
+                                    </tr>
+                                     {{ end }} -->
                                     <div class="media-links">
                                         <span class="text-light fs12 mr10">
                                             <span class="fa fa-thumbs-o-up text-primary mr5"></span> Like </span>
@@ -250,18 +165,6 @@
 
 <!-- footer-->
 <footer class="bg-dark text-center text-white mt-auto">
-    <div class="container p-4 pb-0">
-        <section class="">
-            <form action="/login">
-                <p class="d-flex justify-content-center align-items-center">
-                    <span class="me-3">Register for free</span>
-                    <button type="button" class="btn btn-outline-light btn-rounded btn-light">
-                        <a href="./login.html">Sign up!</a>
-                    </button>
-                </p>
-            </form>
-        </section>
-    </div>
 
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         4Head Forum - By Sacha PERRIN, Damien COURTEAUX, André CLAVERIA, Noé MOYEN, Maxime ROADLEY-BATTIN

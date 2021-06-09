@@ -1,20 +1,22 @@
+
+
 .postContainer {
-
-    
-
     height: auto;
     margin-left: auto;
     margin-right: auto;
     width: 650px;
-    height: 800px;
+    height: auto;
     
     border: solid 2px black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .h5-modified {
     text-align: left;
-    
 }
+.ff{
+    line-height: 9px;
+}
+
 .authorcontainer {
     background-color: gainsboro;
     height: auto;
@@ -42,24 +44,36 @@
     border-top: solid 2px black;
     width: auto;
     height: auto;
-
 }
 
 .comment-container {
-    text-align: center;  
+    text-align: center;
 }
 
 .comment-containers {
-    text-align: center;
     font-size: 14;
     border: solid 2px black;
     width: auto;
     height: auto;
-    background-color: beige;
-
+    background-color: lightgray;
 }
 
 .comment {
+    margin: auto;
+    font-size: 18;
+    width:  600px;
+    height: auto;
+}
 
-    font-size: 20;
+.Commentairetxt{
+text-align: center;
+}
+
+.Contenttxt{
+    text-align: center;
+}
+
+.movedownlike{
+    text-align: center;
+    padding: 18%;
 }

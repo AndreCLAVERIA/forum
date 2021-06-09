@@ -14,6 +14,15 @@ type dbLogin struct { //structure of the database of the login
 	Password string
 }
 
+// type dbLogin struct { //structure of the database of the login
+// 	Id           int
+// 	Pseudo       string
+// 	Email        string
+// 	Password     string
+// 	Bio          string
+// 	LinkGit      string
+// 	LinkLinkedin string
+// }
 type Post struct { //structure of the database of the Post
 	Id       int
 	Title    string
@@ -44,12 +53,28 @@ func InitDatabase(database string) *sql.DB {
 
 	statement := ``
 	if database == "dblogin.db" {
-		statement = `CREATE TABLE IF NOT EXISTS dblogin (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, pseudo TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL)`
+		statement = `CREATE TABLE IF NOT EXISTS dblogin (
+						id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+						pseudo TEXT NOT NULL, 
+						email TEXT NOT NULL,
+			 			password TEXT NOT NULL
+					)`
 	} else if database == "post.db" {
-		statement = `CREATE TABLE IF NOT EXISTS post (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, author TEXT NOT NULL, filter TEXT NOT NULL, like INTEGER NOT NULL, userlike TEXT NOT NULL)`
+		statement = `CREATE TABLE IF NOT EXISTS post (
+						id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+						title TEXT NOT NULL, content TEXT NOT NULL, 
+						author TEXT NOT NULL, filter TEXT NOT NULL, 
+						like INTEGER NOT NULL, 
+						userlike TEXT NOT NULL
+					)`
 		_, err = db.Exec(statement)
 		CheckError(err)
-		statement = `CREATE TABLE IF NOT EXISTS comment (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, idPost TEXT, content TEXT, author TEXT)`
+		statement = `CREATE TABLE IF NOT EXISTS comment (
+						id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+						idPost TEXT, 
+						content TEXT,
+			 			author TEXT
+					)`
 	}
 
 	_, err = db.Exec(statement)

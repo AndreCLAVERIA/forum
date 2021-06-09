@@ -87,15 +87,15 @@
             <label class="btn btn-outline-primary">{{ .Filters}}</label>
             <br>
 
-            <h5 class="h5-modified"> Post made by {{ .Author }}</h5>  
+            <h5 class="h5-modified"> Post made by {{ .Author }}</h5>
             {{if eq $userConnected .Author }}
             <form action="/delete" method="POST">
 
                 <input class="input1" type="hidden" name="id-post-delete" value="{{ .Id }}">
-                <button>
+                <button >
                     <img src="../img/trashcan.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                </button>  
-                
+                </button>
+
             </form>
             {{ end }}
 
@@ -109,23 +109,29 @@
             <br>
             <p>{{ .Content }}</p>
         </div>
-        <div class="likeContainer">
+        <div class="movedownlike" class="likeContainer">
             {{if and (not $alreadyLiked) (ne $userConnected "")}}
             <form action="" method="POST">
                 <input type="hidden" name="like-post" value="{{ .Id }}">
-                <button>Like</button>
+                <button >Like</button>
+                <br>
+                
             </form>
             {{end}}
+            <br>
+            <br>
+            <br>
+            <p>Numbers of Likes : {{.Likes}}</p>
         </div>
     </div>
 
     {{if ne $userConnected ""}}
     <div class="comment-container" style="margin-bottom: auto;">
         <form action="" method="POST">
-            <textarea name="comment" cols="75" rows="10" placeholder="Comment here"></textarea>
+            <textarea class="ff" name="comment" cols="75" rows="10" placeholder="Comment here"></textarea>
             <input type="hidden" name="idPost" value="{{.Id}}">
             <br>
-            <button>submit</button>
+            <button >submit</button>
         </form>
     </div>
     {{else}}
@@ -136,11 +142,11 @@
 
 
     <div class="comment-containers">
-        <h2>Commentaire</h2>
+        <h2 class="Commentairetxt">Commentaire</h2>
         {{range .all_comment}}
         <div class="comment">
-            {{.Content}} by
-            {{.Author}}
+            <p class="Authortxt">by {{.Author}}</p>
+            <p class="Contenttxt">{{.Content}}</p>
         </div>
         {{end}}
     </div>

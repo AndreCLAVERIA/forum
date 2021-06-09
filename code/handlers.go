@@ -169,3 +169,29 @@ func ShowHandler(response http.ResponseWriter, request *http.Request) {
 	tmp, _ := template.ParseFiles("html/showPost.html")
 	tmp.Execute(response, data_post)
 }
+
+// func UserInfosHandler(response http.ResponseWriter, request *http.Request) {
+// 	session, _ := store.Get(request, "mysession")
+// 	bio := request.FormValue("bio")
+// 	linkGit := request.FormValue("linkGit")
+// 	linkLinkedin := request.FormValue("linkLinkedin")
+// 	username := session.Values["username"]
+// 	data_page := map[string]interface{}{
+// 		"username": username,
+// 	}
+// 	data_page["cookieExist"] = data["cookieExist"]
+// 	if data["cookieExist"] == false {
+// 		http.Redirect(response, request, "/login", http.StatusSeeOther)
+// 	}
+
+// 	//Reading everything and then push inside the database
+// 	if bio != "" || linkGit != "" || linkLinkedin != "" {
+// 		db := InitDatabase("dblogin.db")
+
+// 		insertIntoTypesUserInfos(db, bio, linkGit, linkLinkedin, data_page["username"])
+// 		http.Redirect(response, request, "/welcome", http.StatusSeeOther)
+// 	}
+
+// 	t, _ := template.ParseFiles("html/userInfo.html")
+// 	t.Execute(response, data_page)
+// }
