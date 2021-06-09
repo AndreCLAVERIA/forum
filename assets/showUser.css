@@ -1,0 +1,41 @@
+.postContainer {
+
+    
+
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+    height: 800px;
+    
+    border: solid 2px black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.h5-modified {
+    text-align: left;
+    
+}
+.authorcontainer {
+    background-color: gainsboro;
+    height: 100px;
+    width: auto;
+    text-align: unset;
+}
+.titleContainer {
+    text-align: center;
+    font-size: 30;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: solid 2px black;
+    width: auto;
+    height: auto;
+}
+
+.ContentContainer {
+    font-size: 14;
+    border-top: solid 2px black;
+    width: auto;
+    height: auto;
+
+
+}

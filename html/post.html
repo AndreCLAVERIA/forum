@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width, initial-scale-1">
+    <title>Post</title>
+
+    <!-- bootstrap -->
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
+    </script>
+
+    <!-- login -->
+    <link href="../assets/fonts.css" rel="stylesheet">
+    <link href="../assets/post.css" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                Forum
+            </a>
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {{ .username}}
+            </button>
+            <div class="dropdown-menu">
+                <h6 class="dropdown-header">Activity</h6>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Connecté</label>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+                <h6 class="dropdown-header">Personnel</h6>
+                <a class="dropdown-item" href="/user">Mon profile</a>
+            
+                <div class="dropdown-divider">
+                    <h6 class="dropdown-header">Bonus</h6>
+                </div>
+            </div>
+    </nav>
+
+
+    <!-- post -->
+    <div class="container mt-auto">
+        <div class="row1">
+
+            <div class="form-group1">
+
+                <h1>Create post</h1>
+
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="title">Titre<span class="require">*</span></label>
+                        <textarea class="title" id="title" name="title" rows="1" cols="33" placeholder="Title"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description<span class="require">*</span></label>
+                        <textarea class="content" id="content" name="content" rows="10" cols="33" placeholder="Write your thoughts"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <p><span class="require">*</span> - champs requis</p>
+                    </div>
+
+
+                    <div>
+
+                        <label for="filters">Catégorie<span class="require">*</span></label>
+                        <div class="filter">
+                            <div class="box form-check form-check-inline">
+                                <label class="custom-radio-btn">
+                                    <input type="radio" id="filter" name="filter" value="Informatique">
+                                    <span class="checkmark nbr">Informatique</span>
+                                </label>
+                            </div>
+                            <div class="box form-check form-check-inline">
+                                <label class="custom-radio-btn">
+                                    <input type="radio" id="filter" name="filter" value="Gaming">
+                                    <span class="checkmark nbr">Gaming</span>
+                                </label>
+                            </div>
+                            <div class="box form-check form-check-inline">
+                                <label class="custom-radio-btn">
+                                    <input type="radio" id="filter" name="filter" value="Hardware">
+                                    <span class="checkmark nbr">Hardware</span>
+                                </label>
+                            </div>
+                            <div class="box form-check form-check-inline">
+                                <label class="custom-radio-btn">
+                                    <input type="radio" id="filter" name="filter" value="Sport">
+                                    <span class="checkmark nbr">Sport</span>
+                                </label>
+                            </div>
+
+                            <div class="boxform-check form-check-inline">
+                                <label class="custom-radio-btn">
+                                    <input type="radio" id="filter" name="filter" value="Hors-Sujet">
+                                    <span class="checkmark nbr">Hors-Sujet</span>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group mb-0">
+                            <button type="submit" class="btn btn-primary">
+                                Create
+                            </button>
+                            <button class="btn btn-default btn-outline-primary">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- footer -->
+<footer class="bg-dark text-center text-white mt-auto">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        4Head Forum - By Sacha PERRIN, Damien COURTEAUX, André CLAVERIA, Noé MOYEN, Maxime
+        ROADLEY-BATTIN
+
+    </div>
+</footer>
+
+</html>
