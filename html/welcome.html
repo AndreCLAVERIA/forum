@@ -21,7 +21,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous">
     </script>
-    
+
+    <link href="../assets/style.css" rel="stylesheet">
+
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -31,14 +33,13 @@
             <a class="navbar-brand" href="/welcome">
                 <img src="../img/4head.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 4Head
-                WALLAH Noé c'est un bg
             </a>
             {{if .cookieExist }}
             <div class="submitButton">
                 <form>
                     <button type="button" class="btn btn-outline-light btn-rounded">
                         <a href="/post">
-                            <img src="../img/crayon.png">
+                            <img src="../img/pencil.png">
                         </a>
                     </button>
                 </form>
@@ -47,12 +48,12 @@
             <div class="login-container">
                 <div class="dropdown">
                     {{if .cookieExist }}
-                    
+
                     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" name="id-login" value="{{ .Id }}">
-                       Option du compte
+                        {{ .userConnected }}
                     </button>
-                    
+
                     <div class="dropdown-menu">
                         <h6 class="dropdown-header">Activity</h6>
                         <div class="form-check form-switch">
@@ -62,7 +63,7 @@
                         </div>
                         <h6 class="dropdown-header">Personnel</h6>
                         <a class="dropdown-item" href="/user">Mon profile</a>
-                       
+
                         <div class="dropdown-divider">
                             <h6 class="dropdown-header">Bonus</h6>
                         </div>
@@ -97,28 +98,28 @@
                     {{ range .showPost }}
                     <tr>
                         <td>
-                        <form method="GET" action="/showPost">
-                            <input type="hidden" name="id-post" value="{{ .Id }}" >
-                        
-                            <h3 class="h5 mb-0"><button>{{ .Title }}</button></h3>
-                        </form>
-                            <p>{{ .Content }}</p>
+                            <form method="GET" action="/showPost">
+                                <input type="hidden" name="id-post" value="{{ .Id }}">
+
+                                <h3 class="h5 mb-0"><button>{{ .Title }}</button></h3>
+                            </form>
+                            <p class="mb-0">{{ .Content }}</p>
                         </td>
                         <td>
                             <div>9</div>
                         </td>
-                        <td>30</td>
+                        <td>{{ .Likes }} </td>
                         <td>
                             <h4 class="h6 mb-0"> {{ .Filters }}</h4>
                             <div>by <a href="/user">{{ .Author }}</a></div>
-                         
+
                         </td>
                     </tr>
                     {{ end }}
 
-                   
-                    
-                   
+
+
+
                 </tbody>
             </table>
         </div>

@@ -46,7 +46,7 @@
 
                     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" name="id-login" value="{{ .Id }}">
-                        Option du compte
+                        {{ .userConnected }}
                     </button>
 
                     <div class="dropdown-menu">
@@ -75,40 +75,88 @@
         </div>
 
     </nav>
+    {{ $userConnected := .userConnected }}
+    {{ $alreadyLiked := .alreadyLiked}}
 
-    {{ range .showPost}}
+    {{range .showPost}}
     <div class="postContainer">
-       
+
         <div class="authorcontainer">
             <br>
-        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-        <label class="btn btn-outline-primary" >{{ .Filters}}</label>
-        <br>
-        
-        <h5 class="h5-modified"> Post made by {{ .Author }}</h5>
+            <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
+            <label class="btn btn-outline-primary">{{ .Filters}}</label>
+            <br>
 
-         </div>
+            <h5 class="h5-modified"> Post made by {{ .Author }}</h5>  
+            {{if eq $userConnected .Author }}
+            <form action="/delete" method="POST">
+
+                <input class="input1" type="hidden" name="id-post-delete" value="{{ .Id }}">
+                <button>
+                    <img src="../img/trashcan.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                </button>  
+                
+            </form>
+            {{ end }}
+
+        </div>
+
 
         <div class="titleContainer">
             {{ .Title }}
-
         </div>
         <div class="ContentContainer">
             <br>
             <p>{{ .Content }}</p>
         </div>
-    </div>
-    {{ end }}
-
-    <footer class="bg-dark text-center text-white mt-auto">
-
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            4Head Forum - By Sacha PERRIN, Damien COURTEAUX, André CLAVERIA, Noé MOYEN, Maxime ROADLEY-BATTIN
-
+        <div class="likeContainer">
+            {{if and (not $alreadyLiked) (ne $userConnected "")}}
+            <form action="" method="POST">
+                <input type="hidden" name="like-post" value="{{ .Id }}">
+                <button>Like</button>
+            </form>
+            {{end}}
         </div>
-    </footer>
+    </div>
+
+    {{if ne $userConnected ""}}
+    <div class="comment-container" style="margin-bottom: auto;">
+        <form action="" method="POST">
+            <textarea name="comment" cols="75" rows="10" placeholder="Comment here"></textarea>
+            <input type="hidden" name="idPost" value="{{.Id}}">
+            <br>
+            <button>submit</button>
+        </form>
+    </div>
+    {{else}}
+    <p>Connectez vous pour poster un commentaire</p>
+    {{end}}
+
+    {{end}}
+
+
+    <div class="comment-containers">
+        <h2>Commentaire</h2>
+        {{range .all_comment}}
+        <div class="comment">
+            {{.Content}} by
+            {{.Author}}
+        </div>
+        {{end}}
+    </div>
+    </div>
+
+
 
 
 </body>
+
+<footer class="bg-dark text-center text-white mt-auto">
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        4Head Forum - By Sacha PERRIN, Damien COURTEAUX, André CLAVERIA, Noé MOYEN, Maxime ROADLEY-BATTIN
+
+    </div>
+</footer>
 
 </html>

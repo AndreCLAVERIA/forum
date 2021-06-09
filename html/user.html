@@ -39,7 +39,7 @@
             </a>
             <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                {{ .username }}
+                {{ .userConnected }}
             </button>
             <div class="dropdown-menu">
                 <h6 class="dropdown-header">Activity</h6>
@@ -64,15 +64,23 @@
         <!-- Begin .page-heading -->
         <div class="page-heading mt-auto">
             <div class="media clearfix">
-                <div class="media-left pr30">
-                    <a href="#">
-                        <img class="media-object mw150" src="./img/4head.png" alt="...">
-                    </a>
-                </div>
+             
                 <div class="media-body va-m">
                     <h2 class="media-heading">Cadberry
                         <small> - Profile</small>
+                        <div class="submitButton">
+                        <form>
+                             <button  type="button" class="btn btn-outline-light btn-rounded">
+                                <a href="/post">
+                                   Edit
+                                </a>
+                            </button>
+                        </form>
+                        </div>
                     </h2>
+                   
+                        
+                   
                     <p class="lead">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
                     <div class="media-links">
                         <ul class="list-inline list-unstyled">

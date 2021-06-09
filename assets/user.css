@@ -629,3 +629,9 @@ body{margin-top:20px;
       border-color: #DDD;
       border-top: 1px solid #FFF;
     }
+
+.submitButton {
+
+  margin-left: 90%;
+}
+

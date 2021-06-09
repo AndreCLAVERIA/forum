@@ -17,9 +17,9 @@
 }
 .authorcontainer {
     background-color: gainsboro;
-    height: 100px;
+    height: auto;
     width: auto;
-    text-align: unset;
+    text-align: center
 }
 .titleContainer {
     text-align: center;
@@ -31,11 +31,35 @@
     height: auto;
 }
 
+.input1 {
+    background-color: red;
+    margin-left: 80%;
+    
+}
+
 .ContentContainer {
     font-size: 14;
     border-top: solid 2px black;
     width: auto;
     height: auto;
 
+}
 
+.comment-container {
+    text-align: center;  
+}
+
+.comment-containers {
+    text-align: center;
+    font-size: 14;
+    border: solid 2px black;
+    width: auto;
+    height: auto;
+    background-color: beige;
+
+}
+
+.comment {
+
+    font-size: 20;
 }
