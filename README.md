@@ -20,8 +20,7 @@ PS: Even if the directory code say it has problem, it doesnt just go run or go b
 
 ## What is the subject of the project ?
 
-![picture](https://git.ytrack.learn.ynov.com/ACLAVERIA/projet-forum/raw/branch/master/img/accueil.png)
-
+![picture](https://raw.githubusercontent.com/AndreClaveria/forum/master/img/accueil.png)
 This project consists in creating a web forum that allows :
 
     - communication between users.
